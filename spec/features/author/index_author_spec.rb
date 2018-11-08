@@ -7,9 +7,22 @@ describe "List authors page", type: :feature do
     visit authors_path
   end
 
-  it "should have text inputs for an author's first name, last name, and homepage" do
+  it "should show the name and homepage of an author" do
     visit authors_path
 
     expect(page).to have_text(author.name)
+    expect(page).to have_text(author.homepage)
+  end
+
+  it "should have a link to the authors page" do
+    visit authors_path
+
+    expect(page).to have_link 'Show', href: author_path(author)
+  end
+
+  it "should have a link to create new authors" do
+    visit authors_path
+
+    expect(page).to have_link 'New', href: new_author_path
   end
 end
