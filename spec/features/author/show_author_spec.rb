@@ -14,5 +14,6 @@ describe "Show author page", type: :feature do
 
     # these are the standard names given to inputs by the form builder
     expect(page).to have_text('Alan')
+    expect(page).to have_text('Turing')
   end
 end
