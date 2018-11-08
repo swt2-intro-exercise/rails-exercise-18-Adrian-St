@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "authors/edit", type: :view do
   before(:each) do
-    @author = assign(:author, Author.create!())
+    @author = FactoryBot.create(:author)
   end
 
   it "renders the edit author form" do
