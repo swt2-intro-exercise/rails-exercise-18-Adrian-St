@@ -17,3 +17,6 @@
 !/log/.keep
 /tmp
 /nbproject
+
+# Ignore Rubymine .idea file
+.idea/
