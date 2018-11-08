@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_08_195442) do
+ActiveRecord::Schema.define(version: 2018_11_08_203930) do
 
   create_table "authors", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -18,6 +18,11 @@ ActiveRecord::Schema.define(version: 2018_11_08_195442) do
     t.string "first_name"
     t.string "last_name"
     t.string "homepage"
+  end
+
+  create_table "authors_papers", id: false, force: :cascade do |t|
+    t.integer "author_id", null: false
+    t.integer "paper_id", null: false
   end
 
   create_table "papers", force: :cascade do |t|

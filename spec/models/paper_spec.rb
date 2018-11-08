@@ -23,7 +23,7 @@ RSpec.describe Paper, type: :model do
 
   it "should have an empty list of authors" do
     new_paper = FactoryBot.create(:paper)
-    expect(new_paper.authors).to eql([])
+    expect(new_paper.authors).to be_empty
   end
 
 end
