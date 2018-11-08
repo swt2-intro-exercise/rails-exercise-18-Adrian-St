@@ -7,7 +7,7 @@ describe "New paper page", type: :feature do
   end
 
   it "should have text inputs for an author's first name, last name, and homepage" do
-    visit new_author_path
+    visit new_paper_path
 
     # these are the standard names given to inputs by the form builder
     expect(page).to have_field('paper[title]')
