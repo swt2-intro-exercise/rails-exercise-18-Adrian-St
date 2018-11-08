@@ -27,4 +27,11 @@ describe "List authors page", type: :feature do
 
     expect(page).to have_link 'New', href: new_author_path
   end
+
+  it "should have a table heading" do
+    visit authors_path
+
+    expect(page).to have_text('Name')
+    expect(page).to have_text('Homepage')
+  end
 end
