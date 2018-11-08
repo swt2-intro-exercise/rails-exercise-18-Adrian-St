@@ -14,4 +14,9 @@ RSpec.describe Author, type: :model do
   it "returns the full name for author.name" do
     expect(author.name).to eq('Alan Turing')
   end
+
+  it "should not save an author without last_name" do
+    new_author = Author.create(first_name: 'Alan', homepage: 'http://wikipedia.org/Alan_Turing')
+    expect(new_author).to_not be_valid
+  end
 end
