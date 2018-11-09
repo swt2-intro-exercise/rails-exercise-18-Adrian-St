@@ -36,4 +36,13 @@ describe "List paper page", type: :feature do
     expect(page).to have_text('Venue')
     expect(page).to have_text('Year')
   end
+
+  it "should be filtered by year when specified" do
+    paper1 = FactoryBot.create(:paper, title: 'paper1', year: 1950)
+    paper2 = FactoryBot.create(:paper, title: 'paper2', year: 1968)
+
+    visit papers_path(year: 1950)
+
+    expect(page).not_to have_text(paper2.title)
+  end
 end
