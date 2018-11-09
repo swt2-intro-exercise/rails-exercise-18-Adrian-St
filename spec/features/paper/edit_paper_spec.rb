@@ -23,6 +23,7 @@ describe "New paper page", type: :feature do
     select('Erik', :from => 'paper[author_ids][]')
     click_on 'Update Paper'
 
-    expect(@paper.authors).to include(new_author)
+    visit paper_path(@paper)
+    expect(page).to have_text(new_author.first_name)
   end
 end
