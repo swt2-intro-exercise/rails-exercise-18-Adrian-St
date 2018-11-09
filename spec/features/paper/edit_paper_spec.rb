@@ -15,4 +15,14 @@ describe "New paper page", type: :feature do
     # these are the standard names given to inputs by the form builder
     expect(page).to have_css('select[multiple]')
   end
+
+  it "should save new author when selected" do
+    new_author = FactoryBot.create(:author, first_name: "Erik")
+
+    visit edit_paper_path(@paper)
+    select('Erik', :from => 'paper[author_ids][]')
+    click_on 'Update Paper'
+
+    expect(@paper.authors).to include(new_author)
+  end
 end
