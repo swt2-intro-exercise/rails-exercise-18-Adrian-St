@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe "Show author page", type: :feature do
   before do
-    @alan = FactoryBot.create(:author)
+    @alan = FactoryBot.create(:author, papers: [FactoryBot.create(:paper)])
+    @paper = @alan.papers.first
   end
 
   it "should render withour error" do
@@ -16,5 +17,11 @@ describe "Show author page", type: :feature do
     expect(page).to have_text('Alan')
     expect(page).to have_text('Turing')
     expect(page).to have_text('http://wikipedia.de/Alan_Turing')
+  end
+
+  it "should list all papers" do
+    visit author_path(@alan)
+
+    expect(page).to have_link @paper.title, href: paper_path(@paper)
   end
 end
